@@ -1,0 +1,141 @@
+﻿@model PagedList.IPagedList<DOANMOI.Models.Bai_viet>
+@using PagedList.Mvc;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>@ViewBag.Title</h2>
+    <!-- Form tìm kiếm -->
+    <div class="text-center mb-3">
+        <form method="get" action="@Url.Action("Index")" class="form-inline justify-content-center">
+            <div class="form-group mx-sm-3">
+                <input type="text" name="SearchString" class="form-control" placeholder="Tìm kiếm bài viết..." value="@ViewBag.CurrentSearchString" />
+
+            </div>
+            <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+        </form>
+    </div>
+    <!-- Kết thúc -->
+    <!-- Thông báo ra màn hình khi Viewbag = null -->
+    @if (!String.IsNullOrEmpty(ViewBag.Message))
+    {
+        // alert: Đánh dấu đây là một thông báo.
+        // alert-warning: Chỉ định kiểu thông báo là cảnh báo (thường có màu vàng).
+        // alert - dismissible: Cho phép thông báo có thể bị đóng lại(ẩn đi) bởi người dùng.
+        // fade show: Thêm hiệu ứng mờ dần và hiển thị thông báo ngay lập tức.
+        // role = "alert": Cung cấp thông tin cho các công cụ hỗ trợ(như trình đọc màn hình) rằng đây là một thông báo quan trọng.
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @ViewBag.Message
+
+        </div>
+        @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary" })
+    }
+    @if (String.IsNullOrEmpty(ViewBag.Message))
+    {
+        <p>
+            @Html.ActionLink("Tạo bài viết", "Create", null, new { @class = "btn btn-primary" })
+        </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tiêu đề</th>
+                    <th>Nội dung</th>
+                    <th>Hình ảnh</th>
+                    <th>Thời gian Tạo</th>
+                    <th>Danh mục</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.TieuDe)</td>
+                        <td>@Html.DisplayFor(modelItem => item.NoiDung)</td>
+                        <td>
+                            <img src="~/Content/IMG/@item.Hinh_Anh" width="60" />
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.Thoi_Gian_Tao)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Danh_Muc.TenDanhMuc)</td>
+                        <td>
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.BaiVietID }, new { @class = "btn btn-warning btn-sm" }) |
+                            @Html.ActionLink("Chi tiết", "Details", new { id = item.BaiVietID }, new { @class = "btn btn-info btn-sm" }) |
+                            @Html.ActionLink("Xóa", "Delete", new { id = item.BaiVietID }, new { @class = "btn btn-danger btn-sm" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+<div class="pagination-container">
+    <!-- Hiển thị số trang hiện tại và tổng số trang -->
+    <div class="page-info">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    </div>
+
+    <!-- Phân trang -->
+    <div class="pagination-links">
+        @if (Model.PageNumber > 1)
+        {
+            <a href="@Url.Action("Index", new { page = 1 })">Đầu</a>
+            <a href="@Url.Action("Index", new { page = Model.PageNumber - 1 })">«</a>
+        }
+
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            if (i == Model.PageNumber)
+            {
+                <span class="active">@i</span>
+            }
+            else
+            {
+                <a href="@Url.Action("Index", new { page = i })">@i</a>
+            }
+        }
+
+        @if (Model.PageNumber < Model.PageCount)
+        {
+            <a href="@Url.Action("Index", new { page = Model.PageNumber + 1 })">»</a>
+            <a href="@Url.Action("Index", new { page = Model.PageCount })">Cuối</a>
+        }
+    </div>
+</div>
+
+<style>
+    .pagination-container {
+        text-align: center; /* Căn giữa nội dung */
+        margin-top: 20px; /* Khoảng cách trên */
+    }
+
+    .page-info {
+        margin-bottom: 10px; /* Khoảng cách dưới */
+        font-weight: bold; /* In đậm số trang */
+    }
+
+    .pagination-links {
+        display: inline-block; /* Hiển thị các liên kết phân trang theo hàng ngang */
+    }
+
+    .pagination a, .pagination span {
+        margin: 0 5px; /* Khoảng cách giữa các liên kết */
+        padding: 8px 12px; /* Padding cho các liên kết */
+        border: 1px solid #007bff; /* Viền cho các liên kết */
+        border-radius: 4px; /* Bo tròn góc */
+        text-decoration: none; /* Bỏ gạch chân */
+        color: #007bff; /* Màu chữ */
+    }
+
+        .pagination a:hover {
+            background-color: #007bff; /* Màu nền khi hover */
+            color: white; /* Màu chữ khi hover */
+        }
+
+    .pagination .active {
+        background-color: #007bff; /* Màu nền cho trang hiện tại */
+        color: white; /* Màu chữ cho trang hiện tại */
+        border: 1px solid #007bff; /* Viền cho trang hiện tại */
+    }
+</style>

@@ -1,0 +1,67 @@
+﻿@model DOANMOI.Models.Bai_viet
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bai_viet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TieuDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TieuDe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hinh_Anh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hinh_Anh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thoi_Gian_Tao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thoi_Gian_Tao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Danh_Muc.TenDanhMuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Danh_Muc.TenDanhMuc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BaiVietID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

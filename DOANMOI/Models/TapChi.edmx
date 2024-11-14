@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TapChi1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bai_viet">
+          <Key>
+            <PropertyRef Name="BaiVietID" />
+          </Key>
+          <Property Name="BaiVietID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TieuDe" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="NoiDung" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DanhMucID" Type="int" />
+          <Property Name="Hinh_Anh" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Thoi_Gian_Tao" Type="datetime" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="Danh_Muc">
+          <Key>
+            <PropertyRef Name="DanhMucID" />
+          </Key>
+          <Property Name="DanhMucID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenDanhMuc" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Name="FeedbackID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoiDung" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Bai_viet__DanhMu__2C3393D0">
+          <End Role="Danh_Muc" Type="Self.Danh_Muc" Multiplicity="0..1" />
+          <End Role="Bai_viet" Type="Self.Bai_viet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Danh_Muc">
+              <PropertyRef Name="DanhMucID" />
+            </Principal>
+            <Dependent Role="Bai_viet">
+              <PropertyRef Name="DanhMucID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bai_viet__UserID__2D27B809">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Bai_viet" Type="Self.Bai_viet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Bai_viet">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedback__UserID__300424B4">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TapChi1ModelStoreContainer">
+          <EntitySet Name="Bai_viet" EntityType="Self.Bai_viet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Danh_Muc" EntityType="Self.Danh_Muc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Bai_viet__DanhMu__2C3393D0" Association="Self.FK__Bai_viet__DanhMu__2C3393D0">
+            <End Role="Danh_Muc" EntitySet="Danh_Muc" />
+            <End Role="Bai_viet" EntitySet="Bai_viet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bai_viet__UserID__2D27B809" Association="Self.FK__Bai_viet__UserID__2D27B809">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Bai_viet" EntitySet="Bai_viet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedback__UserID__300424B4" Association="Self.FK__Feedback__UserID__300424B4">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TapChi1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bai_viet">
+          <Key>
+            <PropertyRef Name="BaiVietID" />
+          </Key>
+          <Property Name="BaiVietID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TieuDe" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DanhMucID" Type="Int32" />
+          <Property Name="Hinh_Anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Thoi_Gian_Tao" Type="DateTime" Precision="3" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="Danh_Muc" Relationship="Self.FK__Bai_viet__DanhMu__2C3393D0" FromRole="Bai_viet" ToRole="Danh_Muc" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Bai_viet__UserID__2D27B809" FromRole="Bai_viet" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Danh_Muc">
+          <Key>
+            <PropertyRef Name="DanhMucID" />
+          </Key>
+          <Property Name="DanhMucID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenDanhMuc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Bai_viet" Relationship="Self.FK__Bai_viet__DanhMu__2C3393D0" FromRole="Danh_Muc" ToRole="Bai_viet" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="FeedbackID" />
+          </Key>
+          <Property Name="FeedbackID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Feedback__UserID__300424B4" FromRole="Feedback" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Bai_viet" Relationship="Self.FK__Bai_viet__UserID__2D27B809" FromRole="Users" ToRole="Bai_viet" />
+          <NavigationProperty Name="Feedbacks" Relationship="Self.FK__Feedback__UserID__300424B4" FromRole="Users" ToRole="Feedback" />
+        </EntityType>
+        <Association Name="FK__Bai_viet__DanhMu__2C3393D0">
+          <End Role="Danh_Muc" Type="Self.Danh_Muc" Multiplicity="0..1" />
+          <End Role="Bai_viet" Type="Self.Bai_viet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Danh_Muc">
+              <PropertyRef Name="DanhMucID" />
+            </Principal>
+            <Dependent Role="Bai_viet">
+              <PropertyRef Name="DanhMucID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bai_viet__UserID__2D27B809">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Bai_viet" Type="Self.Bai_viet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Bai_viet">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Feedback__UserID__300424B4">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TapChi1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bai_viet" EntityType="Self.Bai_viet" />
+          <EntitySet Name="Danh_Muc" EntityType="Self.Danh_Muc" />
+          <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Bai_viet__DanhMu__2C3393D0" Association="Self.FK__Bai_viet__DanhMu__2C3393D0">
+            <End Role="Danh_Muc" EntitySet="Danh_Muc" />
+            <End Role="Bai_viet" EntitySet="Bai_viet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bai_viet__UserID__2D27B809" Association="Self.FK__Bai_viet__UserID__2D27B809">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Bai_viet" EntitySet="Bai_viet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Feedback__UserID__300424B4" Association="Self.FK__Feedback__UserID__300424B4">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TapChi1ModelStoreContainer" CdmEntityContainer="TapChi1Entities">
+          <EntitySetMapping Name="Bai_viet">
+            <EntityTypeMapping TypeName="TapChi1Model.Bai_viet">
+              <MappingFragment StoreEntitySet="Bai_viet">
+                <ScalarProperty Name="BaiVietID" ColumnName="BaiVietID" />
+                <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="DanhMucID" ColumnName="DanhMucID" />
+                <ScalarProperty Name="Hinh_Anh" ColumnName="Hinh_Anh" />
+                <ScalarProperty Name="Thoi_Gian_Tao" ColumnName="Thoi_Gian_Tao" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Danh_Muc">
+            <EntityTypeMapping TypeName="TapChi1Model.Danh_Muc">
+              <MappingFragment StoreEntitySet="Danh_Muc">
+                <ScalarProperty Name="DanhMucID" ColumnName="DanhMucID" />
+                <ScalarProperty Name="TenDanhMuc" ColumnName="TenDanhMuc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="TapChi1Model.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="FeedbackID" ColumnName="FeedbackID" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TapChi1Model.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="RoleUser" ColumnName="RoleUser" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

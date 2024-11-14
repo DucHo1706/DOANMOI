@@ -1,0 +1,51 @@
+﻿@model DOANMOI.Models.Bai_viet
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center">@ViewBag.Title</h2>
+
+            <h3>Bạn có chắc chắn muốn xóa không?</h3>
+            <div>
+              
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-3">Tiêu đề</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.TieuDe)</dd>
+
+                    <dt class="col-sm-3">Nội dung</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.NoiDung)</dd>
+
+                    <dt class="col-sm-3">Hình ảnh</dt>
+                    <dd class="col-sm-9">
+                        <img src="~/Content/IMG/@Model.Hinh_Anh" width="200" class="img-thumbnail" />
+                    </dd>
+
+                    <dt class="col-sm-3">Thời gian tạo</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Thoi_Gian_Tao)</dd>
+
+                    <dt class="col-sm-3">Danh mục</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Danh_Muc.TenDanhMuc)</dd>
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-actions text-center">
+                        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+                        @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-secondary" })
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

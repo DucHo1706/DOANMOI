@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1664cd98be014c238591438e3e19af8a" Name="Diagram1">
+        <EntityTypeShape EntityType="TapChi1Model.Bai_viet" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChi1Model.Danh_Muc" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChi1Model.Feedback" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="TapChi1Model.User" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="TapChi1Model.FK__Bai_viet__DanhMu__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChi1Model.FK__Bai_viet__UserID__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="TapChi1Model.FK__Feedback__UserID__300424B4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

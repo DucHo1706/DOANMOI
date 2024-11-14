@@ -1,0 +1,81 @@
+﻿@model IEnumerable<DOANMOI.Models.User>
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Account User</h2>
+<!-- Ô thanh tìm kiếm -->
+<!-- Đoạn thêm -->
+@using (Html.BeginForm("Index", "Account", FormMethod.Get))
+{
+    <table>
+        <tr>
+            <td>
+                TÌM KIẾM : <input type="text" name="SearchString" value="@ViewBag.CurrentString" placeholder="Tìm kiếm" />
+                <input type="submit" value="Tìm kiếm" class="btn btn-warning" />
+            </td>
+        </tr>
+    </table>
+}
+<!-- Kết thúc -->
+<!-- Thông báo ra màn hình khi Viewbag = null -->
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    // alert: Đánh dấu đây là một thông báo.
+    // alert-warning: Chỉ định kiểu thông báo là cảnh báo (thường có màu vàng).
+    // alert - dismissible: Cho phép thông báo có thể bị đóng lại(ẩn đi) bởi người dùng.
+    // fade show: Thêm hiệu ứng mờ dần và hiển thị thông báo ngay lập tức.
+    // role = "alert": Cung cấp thông tin cho các công cụ hỗ trợ(như trình đọc màn hình) rằng đây là một thông báo quan trọng.
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        @ViewBag.Message
+
+    </div>
+    @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary" })
+}
+@if (String.IsNullOrEmpty(ViewBag.Message))
+{
+
+
+    <table class="table">
+        <tr>
+            <th>
+                Tên
+            </th>
+            <th>
+                Quyền
+            </th>
+            <th>
+                Mật Khẩu
+            </th>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserPassword)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.UserID }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.UserID }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.UserID })
+                </td>
+            </tr>
+        }
+
+    </table>
+}

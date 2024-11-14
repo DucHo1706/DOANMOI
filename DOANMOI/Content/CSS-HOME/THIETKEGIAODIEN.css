@@ -1,0 +1,278 @@
+﻿html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+/*html, body`: Áp dụng các thuộc tính cho cả thẻ `html` và `body`.
+- height: 100%`: Đặt chiều cao của cả `html` và `body` là 100% chiều cao của cửa sổ trình duyệt.
+- margin: 0`: Loại bỏ khoảng cách mặc định xung quanh `html` và `body`.
+- padding: 0`: Loại bỏ khoảng cách bên trong mặc định của `html` và `body`.
+- font-family: Arial, sans-serif`: Đặt font chữ mặc định cho trang web là Arial, nếu không có thì dùng font sans-serif.*/
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+/*header`: Áp dụng các thuộc tính cho phần tử có class là `header`.
+- `display: flex`: Sử dụng Flexbox để sắp xếp các phần tử con bên trong.
+- `align-items: center`: Căn giữa các phần tử con theo trục dọc.
+- `justify-content: space-between`: Phân bố khoảng cách đều giữa các phần tử con, với phần tử đầu tiên và cuối cùng sát mép.
+- `padding: 10px 20px`: Thêm khoảng cách bên trong phần tử `header` (10px trên/dưới và 20px trái/phải).
+- `background-color: #f1f1f1`: Đặt màu nền cho phần tử `header`.*/
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+    /*.search-bar`: Áp dụng các thuộc tính cho phần tử có class là `search-bar`.
+- `display: flex`: Sử dụng Flexbox để sắp xếp các phần tử con bên trong.
+- `align-items: center`: Căn giữa các phần tử con theo trục dọc.
+- `background-color: #e0e0e0`: Đặt màu nền cho phần tử.
+- `padding: 5px 10px`: Thêm khoảng cách bên trong phần tử (5px trên/dưới và 10px trái/phải).
+- `border-radius: 5px`: Làm tròn các góc của phần tử.*/
+    .search-bar input {
+        border: none;
+        background: none;
+        outline: none;
+        padding: 5px;
+    }
+    /*- `.search-bar input`: Áp dụng các thuộc tính cho phần tử `input` bên trong phần tử có class là `search-bar`.
+- `border: none`: Loại bỏ viền của phần tử `input`.
+- `background: none`: Loại bỏ màu nền của phần tử `input`.
+- `outline: none`: Loại bỏ viền ngoài khi phần tử `input` được chọn.
+- `padding: 5px`: Thêm khoảng cách bên trong phần tử `input`.
+*/
+
+    .search-bar i {
+        margin-left: 5px;
+    }
+/*.search-bar i`: Áp dụng các thuộc tính cho phần tử `i` bên trong phần tử có class là `search-bar`.
+- `margin-left: 5px`: Thêm khoảng cách bên trái của phần tử `i`.
+*/
+
+.sign-in {
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+/* background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;*/
+
+.nav {
+    display: flex;
+    justify-content: center;
+    background-color: #d3d3d3;
+    padding: 10px 10px;
+    margin-top: 20px; /* Khoảng cách trên */
+    margin-bottom: 20px; /* Khoảng cách dưới */
+}
+    /*`.nav`: Áp dụng các thuộc tính cho phần tử có class là `nav`.
+- `display: flex`: Sử dụng Flexbox để sắp xếp các phần tử con bên trong.
+- `justify-content: center`: Căn giữa các phần tử con theo trục ngang.
+- `background-color: #d3d3d3`: Đặt màu nền cho phần tử.
+- `padding: 10px 0`: Thêm khoảng cách bên trong phần tử (10px trên/dưới).*/
+    .nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+/*.nav a`: Áp dụng các thuộc tính cho các phần tử `a` bên trong phần tử có class là `nav`.
+- `margin: 0 15px`: Thêm khoảng cách bên trái và bên phải của phần tử `a` (15px).
+- `text-decoration: none`: Loại bỏ gạch chân của liên kết.
+- `color: black`: Đặt màu chữ là màu đen.
+- `font-weight: bold`: Đặt font chữ đậm.
+*/
+
+.main-content {
+    text-align: center;
+    padding: 50px 50px;
+    background: linear-gradient(to right, #d3d3d3, #f1f1f1);
+    margin-top: 20px; /* Khoảng cách trên */
+    margin-bottom: 20px; /* Khoảng cách dưới */
+}
+    /*- `.main-content`: Áp dụng các thuộc tính cho phần tử có class là `main-content`.
+- `text-align: center`: Căn giữa văn bản bên trong phần tử.
+- `padding: 50px 0`: Thêm khoảng cách bên trong phần tử (50px trên/dưới).
+- `background: linear-gradient(to right, #d3d3d3, #f1f1f1)`: Đặt nền gradient từ trái sang phải với màu bắt đầu là #d3d3d3 và màu kết thúc là #f1f1f1.
+- `flex: 1`: Đặt phần tử này chiếm toàn bộ không gian còn lại trong container flex.
+*/
+    .main-content h1 {
+        font-size: 72px;
+        margin: 0;
+    }
+    /*- `.main-content h1`: Áp dụng các thuộc tính cho phần tử `h1` bên trong phần tử có class là `main-content`.
+- `font-size: 72px`: Đặt kích thước font chữ là 72px.
+- `margin: 0`: Loại bỏ khoảng cách mặc định xung quanh phần tử `h1`.
+*/
+    .main-content .sub-text {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+/*`.main-content .sub-text`: Áp dụng các thuộc tính cho phần tử có class là `sub-text` bên trong phần tử có class là `main-content`.
+- `display: flex`: Sử dụng Flexbox để sắp xếp các phần tử con bên trong.
+- `justify-content: space-between`: Phân bố khoảng cách đều giữa các phần tử con, với phần tử đầu tiên và cuối cùng sát mép.
+- `padding: 0 20px`: Thêm khoảng cách bên trong phần tử (20px trái/phải).
+- `font-size: 24px`: Đặt kích thước font chữ là 24px.
+- `font-weight: bold`: Đặt font chữ đậm.
+*/
+.hot-news {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    font-weight: bold;
+    margin-top: 20px; /* Khoảng cách trên */
+    margin-bottom: 20px; /* Khoảng cách dưới */
+}
+/* `.hot-news`: Áp dụng các thuộc tính cho phần tử có class là `hot-news`.
+- `text-align: center`: Căn giữa văn bản bên trong phần tử.
+- `padding: 10px 0`: Thêm khoảng cách bên trong phần tử (10px trên/dưới).
+- `border-top: 2px solid black`: Thêm viền trên dày 2px màu đen.
+- `border-bottom: 2px solid black`: Thêm viền dưới dày 2px màu đen.
+- `font-weight: bold`: Đặt font chữ đậm.*/
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+.image {
+    flex: 1;
+    max-width: 50%;
+    margin-top: 20px; /* Khoảng cách trên */
+    margin-bottom: 20px; /* Khoảng cách dưới */
+}
+
+    .image img {
+        width: 100%;
+        height: 70%;
+    }
+
+.text {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #000000;
+}
+
+.news-item {
+    text-align: center;
+    width: 30%;
+    margin-top: 20px; /* Khoảng cách trên */
+    margin-bottom: 20px; /* Khoảng cách dưới */
+}
+
+    .news-item img {
+        width: 100%;
+        height: auto;
+    }
+
+    .news-item p {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+.backgroundfooter {
+    background-color: #ccc;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #fff;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 80%;
+    max-width: 1000px;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.news-item1 {
+    min-width: 33.33%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+    .news-item1 img {
+        width: 100%;
+        height: auto;
+    }
+
+    .news-item1 p {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+    }

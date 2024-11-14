@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Tạp Chí</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!--CSS-->
+    <link href="~/Content/CSS-HOME/THIETKEGIAODIEN.css" rel="stylesheet" />
+    <!--LINK BOOTSTRAP-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            @if (Session["Role"] != null)
+            {
+                if (Session["Role"].ToString() == "Admin")
+                {
+                    <div class="header">
+                        <div class="logo">LS</div>
+                        <div class="search-bar">
+                            @using (Html.BeginForm("home", "TrangChu", FormMethod.Get))
+                            {
+
+                                <input type="text" name="SearchString" placeholder="Tìm kiếm..." />
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                            }
+                        </div>
+                        <div>
+
+                            <b> HI @Session["UserName"].ToString()</b>
+                            @Html.ActionLink("Logout", "Logout", "Account", new { area = "" }, new { @class = "nav-link" })
+                        </div>
+                    </div>
+                    <div>
+
+                        <ul class="nav">
+
+
+                            <li>@Html.ActionLink("HOME", "home", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("FASHION", "FASHION", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("CUISINE", "CUISINE", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("ENTERTAINMENT", "ENTERTAIMENT", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("SPORT", "SPORT", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Bài Viết", "Index", "Bai_viet", new { area = "Admin" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Quản Lý Tài Khoản", "Index", "Account", new { area = "" }, new { @class = "nav-link" })</li>
+
+
+
+                        </ul>
+
+
+
+                    </div>
+
+                }
+                else if (Session["Role"].ToString() == "User")
+                {
+        <div class="header">
+            <div class="logo">LS</div>
+                    @using (Html.BeginForm("home", "TrangChu", FormMethod.Get))
+                    {
+                        <input type="text" name="SearchString" placeholder="Tìm kiếm..." />
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    }
+            <div>
+                <b> HI @Session["UserName"].ToString()</b>
+                @Html.ActionLink("Logout", "Logout", "Account", new { area = "" }, new { @class = "nav-link" })
+            </div>
+        </div>
+                    <div>
+
+                        <ul class="nav">
+
+
+                            <li>@Html.ActionLink("HOME", "home", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("FASHION", "FASHION", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("CUISINE", "CUISINE", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("ENTERTAINMENT", "ENTERTAIMENT", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("SPORT", "SPORT", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+
+
+
+                        </ul>
+                      
+
+
+                    </div>
+
+                }
+              
+            }
+            else
+            {
+        <div class="header">
+            <div class="logo">LS</div>
+                    @using (Html.BeginForm("home", "TrangChu", FormMethod.Get))
+                    {
+                        <input type="text" name="SearchString" placeholder="Tìm kiếm..." />
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    }
+            <div>
+
+                @Html.ActionLink("Đăng nhập ", "Login", "Account")
+                @Html.ActionLink("Đăng ký ", "Register", "Account")
+            </div>
+        </div>
+                <div>
+
+                    <ul class="nav">
+
+
+                        <li>@Html.ActionLink("HOME", "home", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("FASHION", "FASHION", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("CUISINE", "CUISINE", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("ENTERTAINMENT", "ENTERTAIMENT", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("SPORT", "SPORT", "TrangChu", new { area = "" }, new { @class = "nav-link" })</li>
+                    </ul>
+                
+                </div>
+
+            }
+
+
+
+
+        </header>
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

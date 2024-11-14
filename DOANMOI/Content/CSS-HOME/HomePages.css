@@ -1,0 +1,245 @@
+﻿@import url('https://fonts.cdnfonts.com/css/vogue-2');
+.banner {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.hot-news {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    font-weight: bold;
+    margin-top: 20px; /* Khoảng cách trên */
+    margin-bottom: 20px; /* Khoảng cách dưới */
+}
+
+.homecontainer {
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    width: 40%;
+}
+
+.Content {
+    width: 60%;
+    text-align: center;
+}
+
+    .Content h6 {
+        font-family: Arial;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+        color: dimgrey;
+        margin-bottom: 10px;
+    }
+
+    .Content h1 {
+        font-family: 'Vogue', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+    }
+
+    .Content h2 {
+        font-family: 'Vogue', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+    }
+
+    .Content p {
+        font-family: "PT Serif", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 23px;
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+
+.topcontainer {
+    margin-top: 60px;
+}
+
+.top-img {
+    margin-left: 60px;
+    display: flex;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.bot-text {
+    text-align: center;
+    float: left;
+    width: 70%;
+    margin-bottom: 60px;
+}
+
+    .bot-text h6 {
+        font-family: Arial;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+        color: dimgrey;
+        margin-bottom: 10px;
+    }
+
+    .bot-text h1 {
+        font-family: 'Vogue', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+    }
+
+    .bot-text h2 {
+        font-family: 'Vogue', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+    }
+
+    .bot-text p {
+        font-family: "PT Serif", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 20px;
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+
+.two-pic-container {
+    margin-bottom: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pic-1 {
+    width: 60%;
+    margin-right: 50px;
+    text-align: right;
+}
+
+.pic-2 {
+    width: 50%;
+    text-align: left;
+    margin-left: 50px;
+}
+
+.two-pic-right-cont {
+    margin-bottom: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.pic-right-1 {
+    width: 30%;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.pic-right-2 {
+    width: 35%;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.left-empty-container {
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lec-img {
+    width: 50%;
+    text-align: right;
+    margin-left: 100px;
+}
+
+.lec-content {
+    width: 60%;
+    text-align: center;
+}
+
+    .lec-content h6 {
+        font-family: Arial;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+        color: dimgrey;
+        margin-bottom: 10px;
+    }
+
+    .lec-content h1 {
+        font-family: 'Vogue', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+    }
+
+    .lec-content h2 {
+        font-family: 'Vogue', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+    }
+
+    .lec-content p {
+        font-family: "PT Serif", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 23px;
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .pagination li {
+        margin: 0 5px; /* Khoảng cách giữa các ô */
+    }
+
+        .pagination li a {
+            display: block; /* Để ô vuông */
+            text-align: center; /* Căn giữa văn bản */
+            padding: 10px 15px; /* Khoảng cách bên trong */
+            border: 1px solid #007bff; /* Đường viền */
+            border-radius: 0; /* Không bo góc để thành ô vuông */
+            color: #007bff; /* Màu chữ */
+            transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển tiếp */
+            width: 40px; /* Đặt chiều rộng cố định */
+            height: 40px; /* Đặt chiều cao cố định để tạo hình vuông */
+            line-height: 20px; /* Căn giữa nội dung theo chiều dọc */
+        }
+
+            .pagination li a:hover {
+                background-color: #007bff; /* Màu nền khi hover */
+                color: white; /* Màu chữ khi hover */
+            }
+
+        .pagination li.active a {
+            background-color: #007bff; /* Màu nền cho ô đang hoạt động */
+            color: white; /* Màu chữ cho ô đang hoạt động */
+            border: 1px solid #007bff; /* Đường viền cho ô đang hoạt động */
+        }

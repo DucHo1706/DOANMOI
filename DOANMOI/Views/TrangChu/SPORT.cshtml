@@ -1,0 +1,80 @@
+﻿@model PagedList.IPagedList<DOANMOI.Models.Bai_viet>
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "SPORT";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="https://fonts.cdnfonts.com/css/vogue" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Federo&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+<link href="~/Content/CSS-HOME/HomePages.css" rel="stylesheet" />
+<img src="~/Content/IMG/anhsport.jpg" width="100%" style="margin-top:10px;margin-bottom:10px"/>
+<div class="hot-news">
+    HOT NEWS
+</div>
+<!-- Thêm thanh tìm kiếm ở đây -->
+<div class="articles-container">
+    @{
+        // Chuyển đổi Model thành danh sách
+        var articlesList = Model.ToList();
+        var articlesToShow = User.Identity.IsAuthenticated ? articlesList : articlesList.Take(5).ToList();
+        int index = 0; // Khởi tạo biến đếm
+    }
+    @foreach (var item in articlesToShow)
+    {
+        if (index % 2 != 0) // Nếu chỉ số là lẻ
+        {
+            <div class="homecontainer table">
+                <div class="image">
+                    <img src="~/Content/IMG/@item.Hinh_Anh" width="60" />
+                </div>
+                <div class="Content">
+                    <h6>@Html.DisplayFor(modelItem => item.Danh_Muc.TenDanhMuc)</h6>
+                    <h2>@Html.DisplayFor(modelItem => item.TieuDe)</h2>
+                    <p>@Html.DisplayFor(modelItem => item.NoiDung)</p>
+                    @Html.DisplayFor(modelItem => item.Thoi_Gian_Tao)
+                </div>
+            </div>
+        }
+        else // Nếu chỉ số là chẳn
+        {
+            <div class="homecontainer table">
+                <div class="Content">
+                    <h6>@Html.DisplayFor(modelItem => item.Danh_Muc.TenDanhMuc)</h6>
+                    <h2>@Html.DisplayFor(modelItem => item.TieuDe)</h2>
+                    <p>@Html.DisplayFor(modelItem => item.NoiDung)</p>
+                    @Html.DisplayFor(modelItem => item.Thoi_Gian_Tao)
+                </div>
+                <div class="image">
+                    <img src="~/Content/IMG/@item.Hinh_Anh" width="60" />
+                </div>
+            </div>
+        }
+        index++; // Tăng biến đếm
+    }
+</div>
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <div class="alert alert-info">
+        Bạn chỉ có thể xem 5 bài viết. Đăng nhập để xem tất cả bài viết.
+        <a href="/Account/Login" class="btn btn-primary">Đăng nhập</a>
+    </div>
+}
+else if (User.Identity.IsAuthenticated)
+{
+    <!-- Thêm phân trang ở đây -->
+    <div class="pagination-container">
+        <ul class="pagination">
+            @Html.PagedListPager(Model, page => Url.Action("home", new { page, SearchString = Request.QueryString["SearchString"] }), PagedListRenderOptions.Classic)
+        </ul>
+    </div>
+}
+
+
+

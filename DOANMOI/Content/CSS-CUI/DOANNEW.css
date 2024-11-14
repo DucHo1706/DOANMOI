@@ -1,0 +1,653 @@
+/* hiệu ứng */
+.banner{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+}
+.banner-main-content{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+}
+.banner-sub-content{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+}
+.container{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+}
+.container-bottom-left{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+}
+.hot-topic-content{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+}
+.image-section{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+}
+.layout-left{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+}
+.layout-right{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+}
+.main-container-right{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+}
+.text-section{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+}
+.current-news-head {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+}
+.read-more-button{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0;
+}
+
+/* *: chọn tất cả các phần tử trên trang
+đặt p và m về ptu 0 để loại bỏ các khoảng cách mặc định của các phần tử html, tạo nền tảng để dễ dàng tùy chỉnh khoảng cách khác
+*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* khi khai báo robot trong css thì biến đó sẽ đc truy cập mọi nơi trong css độ ưu tiên không bị đè
+font không chân(sans-serif đi kèm với font chữ montserrat là font không có các nét gạch
+ngang nhỏ ở cuối các ký tự, dùng cho nhiều thiết bị và có thiết kế hiênj đai*/
+:root{
+    --heading: 'Montserrat', sans-serif;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;/* gọi font chữ chính là raleway nếu không hẫu trợ sê chuyển qua font sans*/
+    background: #fff; /*màu nền của trang*/
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex; /*Flexbox được thiết kế đặc biệt để tạo ra các bố cục linh hoạt, dễ điều chỉnh, phù hợp với nhiều màn hình và khung nhìn khác nhau. Khi áp dụng*/
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+}
+
+
+
+/* phần văn bản chung của bố cục */
+.text-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-section h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.text-section content p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+
+
+.text-section h1 span {
+    color: #999;
+    font-size: 14px;
+    font-weight: normal;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* phần ảnh của tất cả bố cục */
+.image-section {
+    flex: 1;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto; /* Giữ tỉ lệ hình ảnh và không kéo giãn */
+    object-fit: cover;
+}
+.newtoday{
+    background-color: rgb(112, 112, 112);
+    color: white; /* Optional: Changes text color to white for better contrast */
+    padding: 5px; /* Optional: Adds padding to make the background look better */
+}
+
+/* Thêm hiệu ứng cuộn mượt */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Bố cục với ảnh bên trái */
+.layout-left .image-section img {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+
+.neymar-content1{
+    margin-top: 50px;
+    text-align: center;
+}
+.messi-content {
+    margin-top: 50px;
+    text-align: center;
+}
+.people-content2{
+    margin-top: 50px;
+    text-align: center;
+}
+.garnacho-content3{
+    margin-top: 50px;
+    text-align: center;
+}
+.david-content4{
+    margin-top: 50px;
+    text-align: center;
+}
+.addias-content5{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.read-more-button {
+    cursor: pointer;
+    background: #252525;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+/* Định dạng cho các liên kết */
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* Bố cục với ảnh bên phải */
+.layout-right .image-section img {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+
+
+.text-section {
+    text-align: center; /* Căn giữa phần tử con theo chiều ngang */
+}
+
+
+/* trang chủ đầu trang */
+.banner{
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 30px 0;
+    margin-top: 8px;
+}
+
+.banner-main-content{
+    padding: 0 2rem;
+    line-height: 1.7;
+}
+
+.banner-main-content h2{
+    font-size: 2rem;
+    font-family: var(--heading);
+}
+
+.banner-main-content h3{
+    padding: 1rem 0;
+}
+
+
+
+
+/* dòng chữ dưới know more */
+.current-news-head{
+    background: #fff;
+    padding: 20px;
+    font-size: 12px;
+    margin: 20px 0;
+}
+
+.current-news-head h3{
+    padding: 6px;
+    cursor: pointer;
+    position: relative;
+}
+
+.current-news-head h3:hover::before{
+    content: ">> ";
+    position: absolute;
+    left: -12px;
+}
+.current-news-head span{
+    display: block;
+    font-family: var(--heading);
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+/* footer */
+footer{
+    background: #252525;
+    color: #f3f3f3;
+    padding: 30px;
+}
+
+footer h2{
+    padding: 10px 0;
+}
+
+footer p{
+    padding: 10px 0;
+    line-height: 1.3;
+}
+
+.footer-left, 
+.footer-right{
+    margin: 0 20px;
+}
+
+footer > p{
+    text-align: center;
+    opacity: 0.8;
+    margin-top: 20px;
+}
+
+.footer-right i{
+    font-size: 1.8rem;
+    color: #808080;
+}
+
+.footer-right div{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 200px;
+    padding: 10px 0;
+    border-bottom: 1.6px solid #808080;
+}
+ /*opacity: Bắt đầu từ 0 (hoàn toàn trong suốt) và tăng dần lên 1 (hoàn toàn hiển thị).
+   scale: Bắt đầu từ 0.5 (thu nhỏ 50%) và tăng lên 1 (kích thước bình thường).*/
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+/*hot-topic-content h2: Giảm kích thước font của tiêu đề h2 xuống 16px để phù hợp với màn hình nhỏ.
+.main-container-right article: Đặt các bài viết (article) trong .main-container-right thành display: block, có thể giúp hiển thị theo dạng dòng thay vì dạng lưới.
+.main-container-right article img: Ẩn các hình ảnh trong article để tiết kiệm không gian.*/
+@media(max-width: 460px){
+    .hot-topic-content h2{
+        font-size: 16px;
+    }
+
+    .main-container-right article{
+        display: block;
+    }
+
+    .main-container-right article img{
+        display: none;
+    }
+}
+
+/*.banner-sub-content và .container-bottom-left:
+Đặt hiển thị dưới dạng lưới (display: grid).
+Sắp xếp các phần tử trong hai cột với kích thước bằng nhau (grid-template-columns: repeat(2, 1fr);), giúp giao diện gọn gàng và dễ nhìn hơn trên màn hình lớn.*/
+@media(min-width: 768px){
+    .banner-sub-content{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container-bottom-left{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    } 
+}
+
+
+
+
+
+
+
+
+/* Ẩn nội dung ban đầu của thẻ <p> */
+.content {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Hiển thị nội dung thẻ <p> khi checkbox được chọn */
+#toggle-content:checked ~ .content {
+    display: block;
+}
+
+/* Căn chỉnh và thiết lập các phần tử chính */
+.container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.image-section img {
+    width: 200px;
+    height: auto;
+}
+
+.text-section {
+    padding: 20px;
+}
+/*content*/
+/*bố cục của nút read more*/
+.text-section label h6 {
+    display: inline-block;  
+    background-color: #333;
+    background: #000000;
+    border: none;
+    width: 95px;
+    border-radius: 2px;
+    text-align: center;
+    padding: 7px 10px;
+    font-size: 14px;
+    margin: 10px 0 10px 10px;
+}
+
+.text-section h6:hover{    
+    text-decoration: underline;
+}
+
+.text-section h6{
+    text-align: center; /* Căn giữa phần tử con theo chiều ngang */
+}
+
+.text-section label{
+    border: none;
+    background: #000000;
+    padding: 10px 18px;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: background 1s ease;
+}
+.text-section label h6{
+    color: #fffffff3;
+    transition: color 1s ease;
+}
+.text-section label:hover h6{
+    color: #696969;
+}
+h6{
+    color:#fff;
+}
+
+
+/*content1*/
+/* Ẩn nội dung ban đầu của thẻ <p> */
+.content1 {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Hiển thị nội dung thẻ <p> khi checkbox được chọn */
+#toggle-content1:checked ~ .content1 {
+    display: block;
+}
+
+/* Căn chỉnh và thiết lập các phần tử chính */
+.container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.image-section img {
+    width: 200px;
+    height: auto;
+}
+
+.text-section {
+    padding: 20px;
+}
+
+
+
+/*content2*/
+/* Ẩn nội dung ban đầu của thẻ <p> */
+.content2 {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Hiển thị nội dung thẻ <p> khi checkbox được chọn */
+#toggle-content2:checked ~ .content2 {
+    display: block;
+}
+
+/* Căn chỉnh và thiết lập các phần tử chính */
+.container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.image-section img {
+    width: 200px;
+    height: auto;
+}
+
+.text-section {
+    padding: 20px;
+}
+
+
+
+/*content3*/
+/* Ẩn nội dung ban đầu của thẻ <p> */
+.content3 {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Hiển thị nội dung thẻ <p> khi checkbox được chọn */
+#toggle-content3:checked ~ .content3 {
+    display: block;
+}
+
+/* Căn chỉnh và thiết lập các phần tử chính */
+.container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.image-section img {
+    width: 200px;
+    height: auto;
+}
+
+.text-section {
+    padding: 20px;
+}
+
+
+
+/*content4*/
+/* Ẩn nội dung ban đầu của thẻ <p> */
+.content4 {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Hiển thị nội dung thẻ <p> khi checkbox được chọn */
+#toggle-content4:checked ~ .content4 {
+    display: block;
+}
+
+/* Căn chỉnh và thiết lập các phần tử chính */
+.container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.image-section img {
+    width: 200px;
+    height: auto;
+}
+
+.text-section {
+    padding: 20px;
+}
+
+
+
+/*content5*/
+/* Ẩn nội dung ban đầu của thẻ <p> */
+.content5 {
+    display: none;
+    margin-top: 10px;
+}
+
+/* Hiển thị nội dung thẻ <p> khi checkbox được chọn */
+#toggle-content5:checked ~ .content5 {
+    display: block;
+}
+
+/* Căn chỉnh và thiết lập các phần tử chính */
+.container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.image-section img {
+    width: 200px;
+    height: auto;
+}
+
+.text-section {
+    padding: 20px;
+}
+
+
+
+/*anh sport*/
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header-image img {
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+.news-today {
+    background-color: #6f6f6f;
+    color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.news-today h2 {
+    font-size: 1.5em;
+}
+
+.news-today p {
+    margin: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

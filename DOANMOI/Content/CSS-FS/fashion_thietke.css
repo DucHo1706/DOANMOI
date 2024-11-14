@@ -1,0 +1,105 @@
+﻿@import url('https://fonts.cdnfonts.com/css/vogue-2');
+.container-fashion {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+.image{
+    height:38%;
+    text-align:left;
+}
+.Content{
+    width:62%;
+    text-align:center;
+}
+    .Content h1 {
+        font-family:'Vogue', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+    }
+    .Content p {
+        font-family: "PT Serif", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size:23px;
+        margin-right:15px;
+        margin-left:15px;
+    }
+.hot-news {
+    font-size:18px;
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight:900;
+    font-style: normal;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.container-fashion-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Content-style {
+    width: 100%;
+    text-align: center;
+}
+.Content-style h1 {
+    font-family: 'Vogue', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+}
+
+.Content-style p {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 23px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.item{
+    background-color:white;
+    height:auto;
+    width:auto;
+    float:left;
+}
+.fm-img{
+    width:98%;
+    margin-top:10px;
+    margin-right:10px;
+    margin-left:10px;
+}
+.celeb-more {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    align-items: center;
+}
+.Content-fashion {
+    text-align: center;
+}
+    .Content-fashion h2 {
+        font-family: "Prata", serif;
+        font-weight: 400;
+        font-style: normal;
+        font-optical-sizing: auto;
+    }
+    .Content-fashion p {
+        font-family: "Slabo 27px", serif;
+        font-weight: 400;
+        font-style: normal;
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+.img-fashion{
+    margin-top:5px;
+}
